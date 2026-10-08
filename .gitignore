@@ -1,0 +1,7 @@
+node_modules/
+R-Portable/
+dist/
+*.exe
+*.log
+.Rhistory
+.RData

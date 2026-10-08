@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>Controle Magasin</title>
+<style>
+  :root { --bar: #17251f; --ink: #e9f1ec; --mute: #8fa89b; --accent: #4caf50; }
+  html, body { margin: 0; height: 100%; background: #fff; overflow: hidden;
+               font-family: "Segoe UI", Arial, sans-serif; }
+  #bar { height: 48px; box-sizing: border-box; background: var(--bar); display: flex;
+         align-items: stretch; padding: 0 14px; gap: 6px; user-select: none; }
+  .brand { color: var(--ink); font-weight: 600; letter-spacing: .3px; align-self: center;
+           margin-right: 16px; font-size: 15px; }
+  .tab { all: unset; cursor: pointer; display: flex; align-items: center; gap: 9px;
+         padding: 0 18px; color: var(--mute); border-bottom: 3px solid transparent;
+         box-sizing: border-box; }
+  .tab:hover { color: var(--ink); background: rgba(255,255,255,.05); }
+  .tab.active { color: #fff; border-bottom-color: var(--accent); background: rgba(255,255,255,.07); }
+  .tab b { font-size: 14px; font-weight: 600; }
+  .tab small { font-size: 11px; opacity: .75; }
+  .txt { display: flex; flex-direction: column; line-height: 1.15; }
+  .dot { width: 9px; height: 9px; border-radius: 50%; background: #5d6f66; flex: none; }
+  .dot[data-state="loading"] { background: #ffb300; animation: pulse 1s infinite; }
+  .dot[data-state="ready"]   { background: var(--accent); }
+  .dot[data-state="error"], .dot[data-state="stopped"] { background: #e53935; }
+  @keyframes pulse { 50% { opacity: .3; } }
+</style>
+</head>
+<body>
+<div id="bar">
+  <span class="brand">Controle Magasin</span>
+  <button class="tab" data-id="achat">
+    <span class="dot"></span>
+    <span class="txt"><b>Contrôle Achat</b><small>ENTRIE / SORTEE</small></span>
+  </button>
+  <button class="tab" data-id="stock">
+    <span class="dot"></span>
+    <span class="txt"><b>Contrôle Stock</b><small>QUANTITE signée</small></span>
+  </button>
+</div>
+<script>
+  const tabs = document.querySelectorAll('.tab');
+  tabs.forEach((t) => t.addEventListener('click', () => window.shell.switchTo(t.dataset.id)));
+  window.shell.onActive((id) => tabs.forEach((t) => t.classList.toggle('active', t.dataset.id === id)));
+  window.shell.onStatus(({ id, state }) => {
+    const d = document.querySelector('.tab[data-id="' + id + '"] .dot');
+    if (d) d.dataset.state = state;
+  });
+</script>
+</body>
+</html>

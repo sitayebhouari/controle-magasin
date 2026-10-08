@@ -1,0 +1,70 @@
+body {
+  background-color: #ffffff;
+    font-family: "Segoe UI", Arial, sans-serif;
+}
+
+.box {
+  border-top-color: #2e7d32 !important;
+}
+
+/* ============================================
+  Badges produit (Recherche)
+============================================ */
+  .badge-green {
+    background: #2e7d32; color: #fff;
+      padding: 4px 12px; border-radius: 12px;
+    font-weight: bold;
+  }
+.badge-red {
+  background: #c62828; color: #fff;
+    padding: 4px 12px; border-radius: 12px;
+  font-weight: bold;
+}
+.badge-grey {
+  background: #757575; color: #fff;
+    padding: 4px 12px; border-radius: 12px;
+  font-weight: bold;
+}
+
+/* ============================================
+  Cellule coloree : PRODUIT DEMANDE (bleu)
+============================================ */
+  .cell-produit {
+    background-color: #e3f2fd;
+      border: 2px solid #1976d2;
+    border-radius: 10px;
+    padding: 12px 15px;
+    margin-bottom: 10px;
+  }
+.cell-produit label {
+  color: #0d47a1 !important;
+    font-weight: bold;
+  font-size: 15px;
+}
+.cell-produit textarea {
+  background-color: #ffffff !important;
+    border: 1px solid #90caf9 !important;
+  font-size: 14px;
+}
+
+/* ============================================
+  Cellule coloree : QTE DEMANDEE (vert)
+============================================ */
+  .cell-qte {
+    background-color: #e8f5e9;
+      border: 2px solid #388e3c;
+    border-radius: 10px;
+    padding: 12px 15px;
+    margin-bottom: 10px;
+  }
+.cell-qte label {
+  color: #1b5e20 !important;
+    font-weight: bold;
+  font-size: 15px;
+}
+.cell-qte textarea {
+  background-color: #ffffff !important;
+    border: 1px solid #a5d6a7 !important;
+  font-size: 14px;
+  text-align: center;
+}
